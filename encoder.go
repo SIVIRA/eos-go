@@ -232,6 +232,10 @@ func (e *Encoder) Encode(v interface{}) (err error) {
 	return
 }
 
+func (e *Encoder) Write(b []byte) error {
+	return e.toWriter(b)
+}
+
 func (e *Encoder) toWriter(bytes []byte) (err error) {
 	e.count += len(bytes)
 
